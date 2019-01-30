@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>To Do List</title>
+	<link rel="shortcut icon" href="mark.png" type="image/x-icon">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src='main.js'></script>
+</head>
+<body>
+	<h1>To Do List:</h1>
+	<p>What do you want to do today?</br> Start adding items</p>
+	<input type="button" name="newTask" value='+ Add Task'>
+	<p id='tasksNum'></p>
+	<form onsubmit="return false" autocomplete="off">
+		<input type="text" name="taskText">
+		<input type="submit" name='addTask' value='+'>
+	</form>
+	<ul>
+	</ul>
+	<input type="button" name="deleteAll" value="Delete all tasks">
+</body>
+</html>

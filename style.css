@@ -1,0 +1,116 @@
+body {
+	padding: 0px;
+	margin: 0px;
+	text-align: center;
+}
+
+h1 {
+	color: white;
+	background-color: #800080;
+	margin: 0px 0px 20px 0px;
+	padding: 0px;
+	text-align: center;
+	font-family: 'Lato', sans-serif;
+	height: 50px;
+	vertical-align: middle;
+}
+
+#tasksNum {
+	display: none;
+}
+form {
+	display: none;
+}
+
+input[name=newTask], input[name=deleteAll] {
+	border: 0px;
+	background-color: black;
+	color: white;
+	border-radius: 50px;
+	height: 50px;
+	width: 15%;
+	font-size: 20px;
+}
+
+input[name=deleteAll] {
+	display: none;
+	background-color: #800080;
+	margin-top: 30px;
+}
+
+form input[name=taskText] {
+	width: 35%;
+	border-radius: 50px;
+	height: 50px;
+	border: 1px solid #ccccb3;
+	font-size: 40px;
+	padding: 0px 20px;
+	outline: none;
+}
+
+form input[name=addTask] {
+	background-color: white;
+	width: 50px;
+	height: 45px;
+	border: none;
+	font-size: 40px;
+	position: relative;
+	left: -1.7em;
+	outline: none;
+	border-radius: 50px;
+}
+
+ul {
+	width: 35%;
+	margin: 10px auto;
+	font-size: 20px;
+	text-align: left;
+	list-style-type: none;
+	padding-inline-start: 0px;
+}
+ul li {
+	margin: 10px 0px;
+}
+ul li input[class=delete] {
+	background-color: #fff;
+	background: url(delete.svg) no-repeat center center;
+	background-size: contain;
+	border: none;
+	width: 17px;
+	height: 17px;
+	float: right;
+	margin-right: 50px;
+}
+
+.swing {
+  animation: swing 0.9s ease;
+  animation-iteration-count: 1;
+  border: 3px solid #990099 !important;
+}
+
+@keyframes swing {
+  15% {
+    -webkit-transform: translateX(15px);
+    transform: translateX(15px);
+  }
+  30% {
+    -webkit-transform: translateX(-15px);
+    transform: translateX(-15px);
+  }
+  40% {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+  50% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+  65% {
+    -webkit-transform: translateX(5px);
+    transform: translateX(5px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
