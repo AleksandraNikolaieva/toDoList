@@ -12,7 +12,7 @@ $(function() {
 		}, 500, function() {
 			$('p:first').hide();
 			$(this).hide();
-			displayInfo()
+			displayInfo();
 			$('#tasksNum').fadeIn('slow');
 			$('form').fadeIn('slow');
 			$('form input[name=taskText]').focus();
@@ -34,6 +34,7 @@ $(function() {
 		} else {
 			payAttention(inpTaskText);
 		}
+		console.log(localStorage.getItem('tasks'));
 	});
 
 
@@ -41,10 +42,12 @@ $(function() {
 		$(this).change(function() {
 			if(this.checked) {
 				$(this).next().css("text-decoration", "line-through");
-				setCheked($(this).attr('id'), true);
+				setCheked($(this).parent().index(), true);
+				console.log(localStorage.getItem('tasks'));
 			} else {
 				$(this).next().css("text-decoration", "none");
-				setCheked($(this).attr('id'), false);
+				setCheked($(this).parent().index(), false);
+				console.log(localStorage.getItem('tasks'));
 			}
 		})
 		displayInfo();
@@ -52,10 +55,11 @@ $(function() {
 
 	ul.on('click', 'li input.delete', function() {
 		if(confirm('Are you sure that you want to delete this task?')) {
+			arrTasks.splice($(this).parent().index(), 1);
+			localStorage.setItem('tasks', JSON.stringify(arrTasks));
 			$(this).parent().remove();
-			var label = $(this).prev('label')[0];
-			deleteTask($(label).attr('for'));
 			displayInfo();
+			console.log(localStorage.getItem('tasks'));
 		}
 	})
 
@@ -64,6 +68,7 @@ $(function() {
 			ul.html('');
 			localStorage.removeItem('tasks');
 			location.reload();
+			console.log(localStorage.getItem('tasks'));
 		}
 	})
 
@@ -104,7 +109,6 @@ $(function() {
 
 	function saveTask(_taskNum, _taskText) {
 		var task = {
-			id: _taskNum,
 			text: _taskText,
 			checked: false
 		};
@@ -113,22 +117,8 @@ $(function() {
 	}
 
 	function setCheked(liId, value) {
-		for(var i = 0 ; i < arrTasks.length; i++) {
-			if(arrTasks[i].id == parseInt(liId)) {
-				arrTasks[i].checked = value;
-				break;
-			}
-		}
-		localStorage.setItem('tasks', JSON.stringify(arrTasks));
-	}
-
-	function deleteTask(liId) {
-		for(var i = 0 ; i < arrTasks.length; i++) {
-			if(arrTasks[i].id == parseInt(liId)) {
-				arrTasks.splice(i, 1);
-				break;
-			}
-		}
+		console.log(liId);
+		arrTasks[liId].checked = value;
 		localStorage.setItem('tasks', JSON.stringify(arrTasks));
 	}
 
