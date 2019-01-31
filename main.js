@@ -34,7 +34,6 @@ $(function() {
 		} else {
 			payAttention(inpTaskText);
 		}
-		console.log(localStorage.getItem('tasks'));
 	});
 
 
@@ -43,11 +42,9 @@ $(function() {
 			if(this.checked) {
 				$(this).next().css("text-decoration", "line-through");
 				setCheked($(this).parent().index(), true);
-				console.log(localStorage.getItem('tasks'));
 			} else {
 				$(this).next().css("text-decoration", "none");
 				setCheked($(this).parent().index(), false);
-				console.log(localStorage.getItem('tasks'));
 			}
 		})
 		displayInfo();
@@ -59,7 +56,6 @@ $(function() {
 			localStorage.setItem('tasks', JSON.stringify(arrTasks));
 			$(this).parent().remove();
 			displayInfo();
-			console.log(localStorage.getItem('tasks'));
 		}
 	})
 
@@ -68,7 +64,6 @@ $(function() {
 			ul.html('');
 			localStorage.removeItem('tasks');
 			location.reload();
-			console.log(localStorage.getItem('tasks'));
 		}
 	})
 
@@ -117,7 +112,6 @@ $(function() {
 	}
 
 	function setCheked(liId, value) {
-		console.log(liId);
 		arrTasks[liId].checked = value;
 		localStorage.setItem('tasks', JSON.stringify(arrTasks));
 	}
