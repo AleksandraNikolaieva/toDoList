@@ -102,7 +102,7 @@ $(function() {
 		el.removeClass('swing');
 	}
 
-	function saveTask(_taskNum, _taskText) {
+	function saveTask(_taskText) {
 		var task = {
 			text: _taskText,
 			checked: false
@@ -111,8 +111,8 @@ $(function() {
 		localStorage.setItem('tasks', JSON.stringify(arrTasks));
 	}
 
-	function setCheked(liId, value) {
-		arrTasks[liId].checked = value;
+	function setCheked(taskNum, value) {
+		arrTasks[taskNum].checked = value;
 		localStorage.setItem('tasks', JSON.stringify(arrTasks));
 	}
 
