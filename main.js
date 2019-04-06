@@ -23,10 +23,11 @@ $(function() {
 	$('form input[name=addTask]').on('click', function() {
 		var inpTaskText = $('input[name=taskText]');
 		var taskText = $('input[name=taskText]').val().trim();
+		console.log(taskText);
 		if(taskText != '') {
 			hideAttention(inpTaskText);
 			makeLi(nextTaskId, taskText, false);
-			saveTask(nextTaskId, taskText);
+			saveTask(taskText);
 			nextTaskId++;
 			inpTaskText.val('');
 			displayInfo();
@@ -108,6 +109,8 @@ $(function() {
 			checked: false
 		};
 		arrTasks.push(task);
+		console.log(_taskText);
+		console.log(arrTasks);
 		localStorage.setItem('tasks', JSON.stringify(arrTasks));
 	}
 
